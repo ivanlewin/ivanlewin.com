@@ -1,5 +1,25 @@
 .container {
+  color: #222222;
   background-color: #ffffff;
-  color: black;
+  background-image: url('/texture_light.png');
+
   padding: 0 2rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+
+  font-weight: 300;
+
 }
+
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column-reverse;
+  }
+}
+
+/* .gridOne { */
+
+/* } */
