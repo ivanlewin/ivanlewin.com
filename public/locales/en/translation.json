@@ -1,3 +1,19 @@
 {
-    "Job title": "Frontend developer"
+    "Job title": "Frontend developer",
+    "Resume": "Resume",
+    "Site description": "Frontend developer",
+    "Experience": "Experience",
+    "Education": "Education",
+    "Other skills": "Other skills",
+    "Languages": "Languages",
+    "education": {
+        "highschool": {
+            "institution": "Colegio Nacional de Buenos Aires (National School of Buenos Aires)",
+            "degree": "Bachelor"
+        },
+        "college": {
+            "institution": "Universidad de Buenos Aires (University of Buenos Aires)",
+            "degree": "Computer engineering"
+        }
+    }
 }
