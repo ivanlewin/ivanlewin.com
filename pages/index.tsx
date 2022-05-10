@@ -1,9 +1,17 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import Image from 'next/image';
+import styles from '../styles/Home.module.css';
+import { useTranslation } from "react-i18next";
+
+// import i18n (needs to be bundled ;)) 
+import './i18n'
+
 
 const Home: NextPage = () => {
+
+  const { t, i18n } = useTranslation();
+
   return (
     <div className={styles.container}>
       <Head>
@@ -66,7 +74,7 @@ const Home: NextPage = () => {
         </a>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
