@@ -1,17 +1,23 @@
-.container {
-  color: #222222;
+.root {
+  /* color: #222222;
   background-color: #ffffff;
-  background-image: url('/texture_light.png');
+  background-image: url('/pictures/texture_light.png'); */
 
-  padding: 0 2rem;
+  height: 100vh;
+  padding: 2rem;
 
+  /* margin-top: 5rem; */
+  /* font-weight: 300; */
+
+  --accent: #000D21;
+
+}
+
+.columns {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-evenly;
-
-  font-weight: 300;
-
 }
 
 @media (max-width: 600px) {
@@ -20,6 +26,48 @@
   }
 }
 
-/* .gridOne { */
+.avatar {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
 
-/* } */
+.name,
+.jobTitle {
+  margin: 0
+}
+
+.column {
+  padding: 1rem;
+}
+
+.personalInformation {
+}
+
+.name {
+  font-size: 2rem;
+}
+
+.sectionTitle,
+.link {
+  color: var(--accent);
+}
+
+.sectionTitle {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.detailsTitle {
+  font-weight: 400;
+}
+
+.timePeriod {
+  font-size: smaller;
+  font-weight: 400;
+}
+
+.picture {
+  border-radius: 100px
+}
