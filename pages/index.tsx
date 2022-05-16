@@ -5,17 +5,37 @@ import styles from '../styles/Home.module.css';
 import { useTranslation } from 'react-i18next';
 import { loadTranslations } from 'ni18n';
 import { locales, ni18nConfig } from '../ni18n.config';
+import { useEffect } from 'react';
 
 
 const Home: NextPage = () => {
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const theme: 'light' | 'dark' = 'dark';
   const iconStyle = {
     style: {
       filter: `brightness(0) invert(${theme === 'dark' ? 1 : 0})`
     }
   };
+
+  useEffect(() => {
+    const timeoutID = window.setTimeout(() => {
+      window.scroll(0, 9999);
+    }, 5000);
+
+    window.addEventListener('mouseover', () => {
+      window.clearTimeout(timeoutID);
+    });
+
+    window.addEventListener('keydown', () => {
+      window.clearTimeout(timeoutID);
+    });
+
+    window.addEventListener('scroll', () => {
+      window.clearTimeout(timeoutID);
+    });
+
+  }, []);
 
   return (
     <div className={styles.root}>
@@ -38,12 +58,12 @@ const Home: NextPage = () => {
               <Image src='/pictures/Email.svg' alt='Email icon' layout='fill' {...iconStyle} />
             </span>
           </a>
-          <a href='https://www.github.com/ivanlewin/' target='_blank' rel='noopener noreferrer'>
+          <a href='https://www.github.com/ivanlewin' target='_blank' rel='noopener noreferrer'>
             <span className={styles.icon}>
               <Image src='/pictures/GitHub.svg' alt='GitHub Logo' layout='fill' {...iconStyle} />
             </span>
           </a>
-          <a href='https://www.linkedin.com/in/ivanlewin/' target='_blank' rel='noopener noreferrer'>
+          <a href='https://www.linkedin.com/in/ivanlewin' target='_blank' rel='noopener noreferrer'>
             <span className={styles.icon}>
               <Image src='/pictures/LinkedIn.png' alt='LinkedIn Logo' layout='fill' {...iconStyle} />
             </span>
