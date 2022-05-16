@@ -28,7 +28,6 @@ const Home: NextPage = () => {
     window.addEventListener('scroll', () => {
       window.clearTimeout(timeoutID);
     });
-
   }, []);
 
   return (
@@ -42,7 +41,7 @@ const Home: NextPage = () => {
 
         <main className={styles.main}>
           <h1 className={styles.title}>Iván Lewin</h1>
-          <h2 className={styles.subtitle}>{`${t('Job title')}, Smart Safety`}</h2>
+          <h2 className={styles.subtitle}>{t('Job description')}</h2>
         </main>
 
         <footer className={styles.footer}>
