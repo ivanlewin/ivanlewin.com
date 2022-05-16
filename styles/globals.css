@@ -16,8 +16,14 @@ body {
 }
 
 body {
-  background-color: var(--dark);
-  color: #ffffff;
+  min-height: 100vh;
+  min-height: fill-available;
+  min-height: -webkit-fill-available;
+}
+
+html {
+  height: fill-available;
+  height: -webkit-fill-available;
 }
 
 h1 {

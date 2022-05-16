@@ -1,27 +1,6 @@
-import { createTheme } from "@mui/material";
-import { orange } from "@mui/material/colors";
+import { createTheme, ThemeOptions } from '@mui/material';
 
-declare module '@mui/material/styles' {
-    interface Theme {
-        status: {
-            danger: string;
-        };
-    }
-    // allow configuration using `createTheme`
-    interface ThemeOptions {
-        status?: {
-            danger?: string;
-        };
-    }
-}
-
-export const theme = createTheme({
-    status: {
-        danger: orange[500],
-    },
-    palette: {
-        mode: 'dark',
-    },
+export const mainTheme = createTheme({
     typography: {
         fontFamily: [
             'Inter',
@@ -38,4 +17,19 @@ export const theme = createTheme({
             'sans-serif',
         ].join(',')
     }
+});
+
+export const colorModePalette = (mode: 'light' | 'dark'): ThemeOptions['palette'] => ({
+    mode,
+    ...(mode === 'light' ? {
+        // light mode palette
+        background: {
+            default: '#ffffff',
+        }
+    } : {
+        // dark mode palette
+        background: {
+            default: '#1a1a1a',
+        }
+    })
 });
