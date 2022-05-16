@@ -2,73 +2,51 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 
 const Home: NextPage = () => {
 
   const { t, i18n } = useTranslation();
+  const theme: 'light' | 'dark' = 'dark';
+  const iconStyle = {
+    style: {
+      filter: `brightness(0) invert(${theme === 'dark' ? 1 : 0})`
+    }
+  };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.root}>
       <Head>
         <title>Iván Lewin</title>
-        <meta name="description" content={t('Site description')} />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name='description' content={t('Site description')} />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        <h1 className={styles.title}>Iván Lewin</h1>
+        <h2 className={styles.subtitle}>{`${t('Job title')}, Smart Safety`}</h2>
       </main>
 
       <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
+        <p>{t('Connect with me')}</p>
+        <div className={styles.iconContainer}>
+          <a href='mailto:ivanlewin.trabajo@gmail.com' target='_blank' rel='noopener noreferrer'>
+            <span className={styles.icon}>
+              <Image src='/pictures/Email.svg' alt='Email icon' layout='fill' {...iconStyle} />
+            </span>
+          </a>
+          <a href='https://www.github.com/ivanlewin/' target='_blank' rel='noopener noreferrer'>
+            <span className={styles.icon}>
+              <Image src='/pictures/GitHub.svg' alt='GitHub Logo' layout='fill' {...iconStyle} />
+            </span>
+          </a>
+          <a href='https://www.linkedin.com/in/ivanlewin/' target='_blank' rel='noopener noreferrer'>
+            <span className={styles.icon}>
+              <Image src='/pictures/LinkedIn.png' alt='LinkedIn Logo' layout='fill' {...iconStyle} />
+            </span>
+          </a>
+        </div>
       </footer>
     </div>
   );

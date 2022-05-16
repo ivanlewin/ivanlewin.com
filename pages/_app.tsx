@@ -8,9 +8,9 @@ import { theme } from '../styles/theme';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={theme}>
+    // <ThemeProvider theme={{}}>
       <Component {...pageProps} />
-    </ThemeProvider>
+    // </ThemeProvider>
   );
 }
 
