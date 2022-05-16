@@ -3,6 +3,8 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import { useTranslation } from 'react-i18next';
+import { loadTranslations } from 'ni18n';
+import { locales, ni18nConfig } from '../ni18n.config';
 
 
 const Home: NextPage = () => {
@@ -53,3 +55,11 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export const getStaticProps = async (props: { locale: locales; }) => {
+  return {
+    props: {
+      ...(await loadTranslations(ni18nConfig, props.locale, ['translation'])),
+    },
+  };
+};
