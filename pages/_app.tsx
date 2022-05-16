@@ -6,7 +6,7 @@ import { ni18nConfig } from '../ni18n.config';
 import { ThemeProvider } from '@mui/material';
 import { theme } from '../styles/theme';
 
-function MyApp({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     // <ThemeProvider theme={{}}>
       <Component {...pageProps} />
@@ -14,4 +14,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default appWithI18Next(MyApp, ni18nConfig);
+export default appWithI18Next(App, ni18nConfig);
