@@ -3,8 +3,11 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useRouter } from 'next/router';
+import { useTranslation } from 'react-i18next';
 
 const LanguageMenu = () => {
+    const { t } = useTranslation();
+
     const router = useRouter();
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -25,28 +28,41 @@ const LanguageMenu = () => {
     return (
         <div>
             <Button
-                id='basic-button'
+                id='language-button'
                 aria-controls={open ? 'basic-menu' : undefined}
                 aria-haspopup='true'
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
                 sx={{ textTransform: 'none', color: 'text.primary' }}
+                title={t('Change language')}
             >
                 {locale}
             </Button>
             <Menu
-                id='basic-menu'
+                id='language-menu'
                 anchorEl={anchorEl}
                 open={open}
                 onClose={handleClose}
                 anchorOrigin={{ vertical: 'bottom', horizontal: 'center', }}
                 transformOrigin={{ vertical: 'center', horizontal: 'center', }}
                 MenuListProps={{
-                    'aria-labelledby': 'basic-button',
+                    'aria-labelledby': 'language-button',
                 }}
             >
-                <MenuItem onClick={() => handleOnClick('en')}>en</MenuItem>
-                <MenuItem onClick={() => handleOnClick('es')}>es</MenuItem>
+                <MenuItem
+                    title={t('English')}
+                    onClick={() => handleOnClick('en')}
+                    selected={locale === 'en'}
+                >
+                    en
+                </MenuItem>
+                <MenuItem
+                    title={t('Spanish')}
+                    onClick={() => handleOnClick('es')}
+                    selected={locale === 'es'}
+                >
+                    es
+                </MenuItem>
             </Menu>
         </div>
     );

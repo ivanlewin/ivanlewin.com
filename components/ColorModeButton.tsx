@@ -19,6 +19,7 @@ const ColorModeButton = () => {
     return (
         <>
             <Button
+                id='color-mode-button'
                 color='primary'
                 sx={{
                     ml: 1,
@@ -33,12 +34,16 @@ const ColorModeButton = () => {
                 <Typography sx={{ ml: 1 }} variant='body1'>{t('Theme')}</Typography>
             </Button>
             <Menu
+                id='color-mode-menu'
                 anchorEl={menuAnchorEl}
                 open={menuAnchorEl !== null}
                 anchorOrigin={{ vertical: 'bottom', horizontal: 'center', }}
                 transformOrigin={{ vertical: 'center', horizontal: 'center', }}
                 onClose={closeMenu}
                 onClick={closeMenu}
+                MenuListProps={{
+                    'aria-labelledby': 'color-mode-button',
+                }}
             >
                 <MenuItem
                     onClick={() => { changeColorMode('light'); }}
