@@ -41,12 +41,6 @@
   font-size: 1em;
 }
 
-.iconContainer {
-  display: flex;
-  justify-content: space-evenly;
-  width: 150px;
-}
-
 .icon {
   width: 25px;
   height: 25px;

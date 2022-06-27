@@ -1,4 +1,4 @@
-import { useDebounce } from 'hooks/use-debounce';
+import useDebounce from 'hooks/use-debounce';
 import { QRCodeContent } from 'pages/tools/google-auth-qr-gen';
 import QRCode, { QRCodeRenderersOptions } from 'qrcode';
 import { useCallback, useEffect, useRef } from 'react';

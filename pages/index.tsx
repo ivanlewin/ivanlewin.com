@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { loadTranslations } from 'ni18n';
 import { locales, ni18nConfig } from '../ni18n.config';
 import { useEffect } from 'react';
-import { useTheme } from '@mui/material';
+import { Typography, useTheme } from '@mui/material';
 
 
 const Home: NextPage = () => {
@@ -40,12 +40,20 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>Iván Lewin</h1>
-        <h2 className={styles.subtitle}>{t('Job description')}</h2>
+        <Typography color='#bdbdbd' variant='body1'
+          sx={{
+            m: 0,
+          }}
+        >{t('Job description')}</Typography>
       </main>
 
       <footer className={styles.footer}>
         <p>{t('Connect with me')}</p>
-        <div className={styles.iconContainer}>
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-evenly',
+          gap: theme.spacing(3)
+        }}>
           <a href='mailto:ivanlewin.trabajo@gmail.com' target='_blank' rel='noopener noreferrer'>
             <span className={styles.icon}>
               <Image src='/pictures/Email.svg' title='Email' alt='Email icon' layout='fill' {...iconStyle} />
