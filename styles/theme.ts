@@ -15,7 +15,19 @@ export const mainTheme = createTheme({
             'Droid Sans',
             'Helvetica Neue',
             'sans-serif',
-        ].join(',')
+        ].join(','),
+        h1: {
+            fontSize: '3rem'
+        },
+        h2: {
+            fontSize: '1.5rem'
+        },
+        h3: {
+            fontSize: '1.25rem'
+        },
+        body1: {
+            fontSize: '1.25rem'
+        }
     }
 });
 
