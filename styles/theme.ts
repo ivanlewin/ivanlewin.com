@@ -1,9 +1,9 @@
-import { createTheme, ThemeOptions } from '@mui/material';
+import { createTheme, PaletteMode, ThemeOptions } from '@mui/material';
 
 export const mainTheme = createTheme({
     typography: {
         fontFamily: [
-            'Inter',
+            // 'Inter',
             '-apple-system',
             'BlinkMacSystemFont',
             'Segoe UI',
@@ -26,22 +26,21 @@ export const mainTheme = createTheme({
             fontSize: '1.25rem'
         },
         body1: {
-            fontSize: '1.25rem'
+            fontSize: '1rem'
         }
-    }
+    },
 });
 
-export const colorModePalette = (mode: 'light' | 'dark'): ThemeOptions['palette'] => ({
-    mode,
-    ...(mode === 'light' ? {
-        // light mode palette
+export const getDesignTokens = (mode: PaletteMode) => ({
+    palette: {
+        mode,
         background: {
-            default: '#ffffff',
-        }
-    } : {
-        // dark mode palette
-        background: {
-            default: '#1a1a1a',
-        }
-    })
+            ...(mode === 'dark' && {
+                default: '#1a1a1a',
+            }),
+            ...(mode === 'light' && {
+                default: '#ffffff',
+            }),
+        },
+    },
 });

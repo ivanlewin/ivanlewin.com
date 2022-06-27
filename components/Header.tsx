@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import LanguageMenu from './LanguageMenu';
-import ToggleColorModeButton from './ToggleColorModeButton';
+import ColorModeButton from './ColorModeButton';
 
 const Header = () => (
     <Box
@@ -13,7 +13,7 @@ const Header = () => (
         }}
     >
         <LanguageMenu />
-        <ToggleColorModeButton />
+        <ColorModeButton />
     </Box>
 );
 
