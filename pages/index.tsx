@@ -49,17 +49,22 @@ const Home: NextPage = () => {
           <div className={styles.iconContainer}>
             <a href='mailto:ivanlewin.trabajo@gmail.com' target='_blank' rel='noopener noreferrer'>
               <span className={styles.icon}>
-                <Image src='/pictures/Email.svg' alt='Email icon' layout='fill' {...iconStyle} />
-              </span>
-            </a>
-            <a href='https://www.github.com/ivanlewin' target='_blank' rel='noopener noreferrer'>
-              <span className={styles.icon}>
-                <Image src='/pictures/GitHub.svg' alt='GitHub Logo' layout='fill' {...iconStyle} />
+                <Image src='/pictures/Email.svg' title='Email' alt='Email icon' layout='fill' {...iconStyle} />
               </span>
             </a>
             <a href='https://www.linkedin.com/in/ivanlewin' target='_blank' rel='noopener noreferrer'>
               <span className={styles.icon}>
-                <Image src='/pictures/LinkedIn.png' alt='LinkedIn Logo' layout='fill' {...iconStyle} />
+                <Image src='/pictures/LinkedIn.svg' title='LinkedIn' alt='LinkedIn Logo' layout='fill' {...iconStyle} />
+              </span>
+            </a>
+            <a href='https://www.github.com/ivanlewin' target='_blank' rel='noopener noreferrer'>
+              <span className={styles.icon}>
+                <Image src='/pictures/GitHub.svg' title='GitHub' alt='GitHub Logo' layout='fill' {...iconStyle} />
+              </span>
+            </a>
+            <a href='https://leetcode.com/ivanlewin' target='_blank' rel='noopener noreferrer'>
+              <span className={styles.icon}>
+                <Image src='/pictures/LeetCode.svg' title='LeetCode' alt='LeetCode Logo' layout='fill' {...iconStyle} />
               </span>
             </a>
           </div>
