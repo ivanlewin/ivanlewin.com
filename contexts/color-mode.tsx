@@ -7,11 +7,13 @@ import { getDesignTokens } from '../styles/theme';
 
 type ColorModeContext = {
     paletteMode: PaletteMode;
+    syncedWithSystem: boolean;
     changeColorMode: (paletteMode: PaletteMode | 'syncWithSystem') => void;
 };
 
 export const ColorModeContext = createContext({
     paletteMode: 'dark',
+    syncedWithSystem: false,
     changeColorMode: () => { }
 } as ColorModeContext);
 
@@ -53,7 +55,7 @@ export const ToggleColorMode = ({ children }: ToggleColorModeProps) => {
     ), [paletteMode, theme]);
 
     return (
-        <ColorModeContext.Provider value={{ paletteMode, changeColorMode }}>
+        <ColorModeContext.Provider value={{ paletteMode, syncedWithSystem: userPreferences.syncWithSystem, changeColorMode }}>
             <ThemeProvider theme={colorModeTheme}>
                 {children}
             </ThemeProvider>

@@ -30,7 +30,7 @@ const LanguageMenu = () => {
                 aria-haspopup='true'
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
-                style={{ textTransform: 'none', }}
+                sx={{ textTransform: 'none', color: 'text.primary' }}
             >
                 {locale}
             </Button>
@@ -39,6 +39,8 @@ const LanguageMenu = () => {
                 anchorEl={anchorEl}
                 open={open}
                 onClose={handleClose}
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'center', }}
+                transformOrigin={{ vertical: 'center', horizontal: 'center', }}
                 MenuListProps={{
                     'aria-labelledby': 'basic-button',
                 }}
