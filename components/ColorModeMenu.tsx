@@ -4,35 +4,32 @@ import { useTranslation } from 'react-i18next';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import BrightnessAutoIcon from '@mui/icons-material/BrightnessAuto';
-import { Button, IconButtonProps, Menu, MenuItem, Typography } from '@mui/material';
+import { IconButtonProps, Menu, MenuItem, Typography } from '@mui/material';
 
 import { useColorMode } from '../contexts/color-mode';
+import MenuButton from './Header/MenuButton';
 
-const ColorModeButton = () => {
+const ColorModeMenu = () => {
     const { t } = useTranslation();
     const { paletteMode, syncedWithSystem, changeColorMode } = useColorMode();
 
     const [menuAnchorEl, setMenuAnchor] = useState<null | HTMLButtonElement>(null);
+    const open = Boolean(menuAnchorEl);
     const handleMenu: IconButtonProps['onClick'] = (event) => setMenuAnchor(event.currentTarget);
     const closeMenu = () => setMenuAnchor(null);;
 
     return (
         <>
-            <Button
+            <MenuButton
                 id='color-mode-button'
-                color='primary'
-                sx={{
-                    ml: 1,
-                    mr: 2,
-                    color: 'text.primary',
-                    textTransform: 'none',
-                }}
-                title={t('Change color mode')}
+                aria-controls={open ? 'color-mode-menu' : undefined}
+                aria-haspopup='true'
+                aria-expanded={open ? 'true' : undefined}
+                title={t('Change theme')}
                 onClick={handleMenu}
-            >
-                {paletteMode === 'dark' ? <Brightness4Icon /> : <Brightness7Icon />}
-                <Typography sx={{ ml: 1 }} variant='body1'>{t('Theme')}</Typography>
-            </Button>
+                label={t('Theme')}
+                icon={paletteMode === 'dark' ? <Brightness4Icon /> : <Brightness7Icon />}
+            />
             <Menu
                 id='color-mode-menu'
                 anchorEl={menuAnchorEl}
@@ -43,6 +40,9 @@ const ColorModeButton = () => {
                 onClick={closeMenu}
                 MenuListProps={{
                     'aria-labelledby': 'color-mode-button',
+                }}
+                sx={{
+                    fontSize: 14,
                 }}
             >
                 <MenuItem
@@ -74,4 +74,4 @@ const ColorModeButton = () => {
     );
 };
 
-export default ColorModeButton;
+export default ColorModeMenu;

@@ -1,24 +1,16 @@
 import type { NextPage } from 'next';
+import UserSelectNone from 'components/UserSelectNone';
 import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
-import Layout from '../components/Layout';
-import { useTranslation } from 'react-i18next';
 import { loadTranslations } from 'ni18n';
-import { locales, ni18nConfig } from '../ni18n.config';
 import { useEffect } from 'react';
-import { Typography, useTheme } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
+import { Grid, Typography } from '@mui/material';
+
+import { locales, ni18nConfig } from '../ni18n.config';
 
 const Home: NextPage = () => {
-
   const { t } = useTranslation();
-  const theme = useTheme();
-  const iconStyle = {
-    style: {
-      filter: `brightness(0) invert(${theme.palette.mode === 'dark' ? 1 : 0})`
-    }
-  };
 
   useEffect(() => {
     const timeoutID = window.setTimeout(() => {
@@ -31,52 +23,38 @@ const Home: NextPage = () => {
   }, []);
 
   return (
-    <div className={styles.root}>
+    <UserSelectNone >
       <Head>
         <title>Iván Lewin</title>
         <meta name='description' content={t('Site description')} />
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>Iván Lewin</h1>
-        <Typography color='#bdbdbd' variant='body1'
+      <Grid container flexDirection='column' justifyContent='center' alignItems='center' component='main'
+        sx={{
+          height: '100vh'
+        }}
+      >
+        <Typography variant='h1'
+          sx={{
+            mt: '-56px',
+            lineHeight: 1.5,
+            textAlign: 'center',
+          }}
+        >
+          Iván Lewin
+        </Typography>
+
+        <Typography color='primary.dark' variant='body1'
           sx={{
             m: 0,
+            textAlign: 'center',
           }}
-        >{t('Job description')}</Typography>
-      </main>
-
-      <footer className={styles.footer}>
-        <p>{t('Connect with me')}</p>
-        <div style={{
-          display: 'flex',
-          justifyContent: 'space-evenly',
-          gap: theme.spacing(3)
-        }}>
-          <a href='mailto:ivanlewin.trabajo@gmail.com' target='_blank' rel='noopener noreferrer'>
-            <span className={styles.icon}>
-              <Image src='/pictures/Email.svg' title='Email' alt='Email icon' layout='fill' {...iconStyle} />
-            </span>
-          </a>
-          <a href='https://www.linkedin.com/in/ivanlewin' target='_blank' rel='noopener noreferrer'>
-            <span className={styles.icon}>
-              <Image src='/pictures/LinkedIn.svg' title='LinkedIn' alt='LinkedIn Logo' layout='fill' {...iconStyle} />
-            </span>
-          </a>
-          <a href='https://www.github.com/ivanlewin' target='_blank' rel='noopener noreferrer'>
-            <span className={styles.icon}>
-              <Image src='/pictures/GitHub.svg' title='GitHub' alt='GitHub Logo' layout='fill' {...iconStyle} />
-            </span>
-          </a>
-          <a href='https://leetcode.com/ivanlewin' target='_blank' rel='noopener noreferrer'>
-            <span className={styles.icon}>
-              <Image src='/pictures/LeetCode.svg' title='LeetCode' alt='LeetCode Logo' layout='fill' {...iconStyle} />
-            </span>
-          </a>
-        </div>
-      </footer>
-    </div>
+        >
+          {t('Job description')}
+        </Typography>
+      </Grid>
+    </UserSelectNone >
   );
 };
 

@@ -1,9 +1,13 @@
+import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { useRouter } from 'next/router';
-import { useTranslation } from 'react-i18next';
+import LanguageIcon from '@mui/icons-material/Language';
+import { Typography } from '@mui/material';
+import MenuButton from './Header/MenuButton';
 
 const LanguageMenu = () => {
     const { t } = useTranslation();
@@ -26,18 +30,18 @@ const LanguageMenu = () => {
     };
 
     return (
-        <div>
-            <Button
+        <>
+            <MenuButton
                 id='language-button'
-                aria-controls={open ? 'basic-menu' : undefined}
+                aria-controls={open ? 'language-menu' : undefined}
                 aria-haspopup='true'
                 aria-expanded={open ? 'true' : undefined}
-                onClick={handleClick}
-                sx={{ textTransform: 'none', color: 'text.primary' }}
                 title={t('Change language')}
-            >
-                {locale}
-            </Button>
+                onClick={handleClick}
+                label={t('Language')}
+                icon={<LanguageIcon />}
+                top={-2}
+            />
             <Menu
                 id='language-menu'
                 anchorEl={anchorEl}
@@ -47,6 +51,9 @@ const LanguageMenu = () => {
                 transformOrigin={{ vertical: 'center', horizontal: 'center', }}
                 MenuListProps={{
                     'aria-labelledby': 'language-button',
+                }}
+                sx={{
+                    fontSize: 14
                 }}
             >
                 <MenuItem
@@ -64,7 +71,7 @@ const LanguageMenu = () => {
                     es
                 </MenuItem>
             </Menu>
-        </div>
+        </>
     );
 };
 

@@ -2,6 +2,7 @@ import { createTheme, PaletteMode, ThemeOptions } from '@mui/material';
 
 export const mainTheme = createTheme({
     typography: {
+        fontSize: 16,
         fontFamily: [
             // 'Inter',
             '-apple-system',
@@ -17,30 +18,44 @@ export const mainTheme = createTheme({
             'sans-serif',
         ].join(','),
         h1: {
-            fontSize: '3rem'
+            fontSize: 32,
+            fontWeight: '600'
         },
         h2: {
-            fontSize: '1.5rem'
+            fontSize: 16,
+            fontWeight: '400'
         },
         h3: {
-            fontSize: '1.25rem'
+            fontSize: 20
         },
         body1: {
-            fontSize: '1rem'
+            fontSize: 16
         }
     },
 });
 
-export const getDesignTokens = (mode: PaletteMode) => ({
+export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
     palette: {
         mode,
         background: {
-            ...(mode === 'dark' && {
+            ...(mode === 'dark' ? ({
                 default: '#1a1a1a',
-            }),
-            ...(mode === 'light' && {
+            }) : ({
                 default: '#ffffff',
-            }),
+            })),
         },
+        text: {
+            ...(mode === 'dark' ? ({
+            }) : ({
+            })),
+        },
+        primary: {
+            ...(mode === 'dark' ? ({
+                main: '#eaeaea',
+                dark: '#bdbdbd',
+            }) : ({
+                main: '#1a1a1a',
+            })),
+        }
     },
 });
