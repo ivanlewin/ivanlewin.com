@@ -5,6 +5,11 @@
     "Site description": "Desarrollador frontend",
     "Experience": "Experiencia laboral",
     "Education": "Formación académica",
+    "Language": "Idioma",
+    "Theme": "Tema",
+    "Dark": "Oscuro",
+    "Light": "Claro",
+    "Auto": "Automático",
     "Languages": "Idiomas",
     "Interests": "Intereses",
     "jobExperience": {

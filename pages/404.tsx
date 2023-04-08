@@ -26,7 +26,7 @@ const Custom404: NextPage = () => {
           sx={{
             fontSize: '1.2rem',
           }}
-        >{t('Page not found')}</Typography>
+        >{t("Page not found")}</Typography>
         <Link href='/'>
           <a >
             <Typography
@@ -42,7 +42,7 @@ const Custom404: NextPage = () => {
                 }
               }}
             >
-              {t('Go back to home page')}
+              {t("Go back to home page")}
             </Typography>
           </a>
         </Link>

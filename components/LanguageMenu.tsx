@@ -36,9 +36,9 @@ const LanguageMenu = () => {
                 aria-controls={open ? 'language-menu' : undefined}
                 aria-haspopup='true'
                 aria-expanded={open ? 'true' : undefined}
-                title={t('Change language')}
+                title={t("Change language")}
                 onClick={handleClick}
-                label={t('Language')}
+                label={t("Language")}
                 icon={<LanguageIcon />}
                 top={-2}
             />
@@ -57,14 +57,14 @@ const LanguageMenu = () => {
                 }}
             >
                 <MenuItem
-                    title={t('English')}
+                    title={t("English")}
                     onClick={() => handleOnClick('en')}
                     selected={locale === 'en'}
                 >
                     en
                 </MenuItem>
                 <MenuItem
-                    title={t('Spanish')}
+                    title={t("Spanish")}
                     onClick={() => handleOnClick('es')}
                     selected={locale === 'es'}
                 >

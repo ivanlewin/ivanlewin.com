@@ -27,7 +27,7 @@ const Footer = () => {
                 }}
             >
                 <Typography variant='body1' sx={{ m: '1rem' }}>
-                    {t('Connect with me')}
+                    {t("Connect with me")}
                 </Typography>
                 <Grid justifyContent='space-evenly' sx={{
                     display: 'flex',

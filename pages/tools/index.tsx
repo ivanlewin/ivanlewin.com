@@ -20,7 +20,7 @@ const Tools: NextPage = () => {
         <div>
             <Head>
                 <title>Tools</title>
-                <meta name='description' content={t('Site description')} />
+                <meta name='description' content={t("Site description")} />
             </Head>
             <main>
                 <h1>Tools</h1>

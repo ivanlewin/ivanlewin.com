@@ -25,9 +25,9 @@ const ColorModeMenu = () => {
                 aria-controls={open ? 'color-mode-menu' : undefined}
                 aria-haspopup='true'
                 aria-expanded={open ? 'true' : undefined}
-                title={t('Change theme')}
+                title={t("Change theme")}
                 onClick={handleMenu}
-                label={t('Theme')}
+                label={t("Theme")}
                 icon={paletteMode === 'dark' ? <Brightness4Icon /> : <Brightness7Icon />}
             />
             <Menu
@@ -47,27 +47,27 @@ const ColorModeMenu = () => {
             >
                 <MenuItem
                     onClick={() => { changeColorMode('light'); }}
-                    title={t('Light mode')}
+                    title={t("Light mode")}
                     selected={!syncedWithSystem && paletteMode === 'light'}
                 >
                     <Brightness7Icon />
-                    <Typography sx={{ ml: 2 }} variant='body1'>{t('Light')}</Typography>
+                    <Typography sx={{ ml: 2 }} variant='body1'>{t("Light")}</Typography>
                 </MenuItem>
                 <MenuItem
                     onClick={() => { changeColorMode('dark'); }}
-                    title={t('Dark mode')}
+                    title={t("Dark mode")}
                     selected={!syncedWithSystem && paletteMode === 'dark'}
                 >
                     <Brightness4Icon />
-                    <Typography sx={{ ml: 2 }} variant='body1'>{t('Dark')}</Typography>
+                    <Typography sx={{ ml: 2 }} variant='body1'>{t("Dark")}</Typography>
                 </MenuItem>
                 <MenuItem
                     onClick={() => { changeColorMode('syncWithSystem'); }}
-                    title='Sincronizar con el sistema'
+                    title={t("Sync with system")}
                     selected={syncedWithSystem}
                 >
                     <BrightnessAutoIcon />
-                    <Typography sx={{ ml: 2 }} variant='body1'>{t('Auto')}</Typography>
+                    <Typography sx={{ ml: 2 }} variant='body1'>{t("Auto")}</Typography>
                 </MenuItem>
             </Menu>
         </>
