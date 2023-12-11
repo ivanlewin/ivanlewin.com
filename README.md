@@ -1,4 +1,4 @@
-My personal site, built with React.
+My personal site, built with Next.js.
 
 <br>
 
