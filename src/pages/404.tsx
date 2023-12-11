@@ -28,23 +28,21 @@ const Custom404: NextPage = () => {
           }}
         >{t("Page not found")}</Typography>
         <Link href='/'>
-          <a >
-            <Typography
-              variant='body1'
-              color='primary.dark'
-              sx={{
-                textDecoration: 'underline',
-                '&:visited': {
-                  textDecorationColor: theme.palette.primary.main,
-                },
-                '&:hover': {
-                  color: theme.palette.primary.main,
-                }
-              }}
-            >
-              {t("Go back to home page")}
-            </Typography>
-          </a>
+          <Typography
+            variant='body1'
+            color='primary.dark'
+            sx={{
+              textDecoration: 'underline',
+              '&:visited': {
+                textDecorationColor: theme.palette.primary.main,
+              },
+              '&:hover': {
+                color: theme.palette.primary.main,
+              }
+            }}
+          >
+            {t("Go back to home page")}
+          </Typography>
         </Link>
       </Grid>
     </UserSelectNone>

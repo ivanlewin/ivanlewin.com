@@ -28,7 +28,7 @@ const Tools: NextPage = () => {
                 <ul>
                     {pages.map(page => (
                         <Link href={`/tools/${page.url}`} key={page.url}>
-                            <a>{page.title}</a>
+                            {page.title}
                         </Link>
                     ))}
                 </ul>
