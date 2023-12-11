@@ -1,6 +1,5 @@
 
 import { loadTranslations } from 'ni18n';
-import { locales, ni18nConfig } from 'ni18n.config';
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -8,6 +7,7 @@ import {
   Button, FormControlLabel, FormGroup, FormLabel, Grid, Radio, RadioGroup, TextField
 } from '@mui/material';
 import { OTPData } from './OTPValuesMonaco';
+import { locales, ni18nConfig } from 'ni18n.config';
 
 type OTPValuesFormProps = {
   onSubmit: (values: OTPData[]) => void;

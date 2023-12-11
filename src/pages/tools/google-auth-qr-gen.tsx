@@ -4,13 +4,13 @@ import OTPValuesMonaco, { OTPData } from 'components/tools/google-auth-qr-gen/OT
 import QRCodes from 'components/tools/google-auth-qr-gen/QRCodes';
 import Head from 'next/head';
 import { loadTranslations } from 'ni18n';
-import { locales, ni18nConfig } from 'ni18n.config';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Grid, Tab, Tabs, TabsProps } from '@mui/material';
 
 import type { NextPage } from 'next';
+import { locales, ni18nConfig } from 'ni18n.config';
 function a11yProps(index: number) {
   return {
     id: `simple-tab-${index}`,

@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useTranslation } from 'react-i18next';
 import { loadTranslations } from 'ni18n';
-import { locales, ni18nConfig } from '../../ni18n.config';
+import { locales, ni18nConfig } from 'ni18n.config';
 import Link from 'next/link';
 
 

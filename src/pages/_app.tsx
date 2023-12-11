@@ -7,8 +7,8 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 
 import Layout from '../components/Layout';
 import { ToggleColorMode } from '../contexts/color-mode';
-import { ni18nConfig } from '../ni18n.config';
-import { mainTheme } from '../styles/theme';
+import { ni18nConfig } from 'ni18n.config';
+import { mainTheme } from '../theme';
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (

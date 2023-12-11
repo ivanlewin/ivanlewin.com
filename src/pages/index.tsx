@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Grid, Typography } from '@mui/material';
 
-import { locales, ni18nConfig } from '../ni18n.config';
+import { locales, ni18nConfig } from 'ni18n.config';
 
 const Home: NextPage = () => {
   const { t } = useTranslation();

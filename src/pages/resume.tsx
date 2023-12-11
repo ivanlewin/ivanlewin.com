@@ -2,7 +2,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from '/styles/Resume.module.css';
+import styles from './resume.module.css';
 import { useTranslation } from 'react-i18next';
 import { Typography } from '@mui/material';
 

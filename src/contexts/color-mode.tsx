@@ -3,7 +3,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 
 import { createTheme, PaletteMode, ThemeProvider, useMediaQuery, useTheme } from '@mui/material';
 
-import { getDesignTokens } from '../styles/theme';
+import { getDesignTokens } from '../theme';
 
 type ColorModeContext = {
     paletteMode: PaletteMode;
