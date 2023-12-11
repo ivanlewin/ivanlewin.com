@@ -1,9 +1,9 @@
-import { useTheme } from '@mui/material';
-import dynamic from 'next/dynamic';
-import { EditorProps } from '@monaco-editor/react';
 import { loadTranslations } from 'ni18n';
 import { locales, ni18nConfig } from 'ni18n.config';
 import { z } from 'zod';
+
+import Editor, { EditorProps } from '@monaco-editor/react';
+import { useTheme } from '@mui/material';
 
 const hotpDataSchema = z.object({
   type: z.union([z.literal('hotp'), z.literal('HOTP')]),
@@ -29,11 +29,6 @@ const otpDataSchema = z.union([
 ]);
 
 export type OTPData = z.infer<typeof otpDataSchema>;
-
-const Editor = dynamic<EditorProps>(
-  () => import('@monaco-editor/react'),
-  { ssr: false },
-);
 
 type OTPValuesMonacoProps = {
   onSubmit: (values: OTPData[]) => void;
