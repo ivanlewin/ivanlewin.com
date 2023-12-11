@@ -42,9 +42,6 @@ const Footer = () => {
                     <a href='https://www.github.com/ivanlewin' target='_blank' rel='noopener noreferrer'>
                         <Icon src='/pictures/GitHub.svg' title='GitHub' alt='GitHub Logo' />
                     </a>
-                    <a href='https://leetcode.com/ivanlewin' target='_blank' rel='noopener noreferrer'>
-                        <Icon src='/pictures/LeetCode.svg' title='LeetCode' alt='LeetCode Logo' />
-                    </a>
                 </Grid>
             </Grid>
         </UserSelectNone>
