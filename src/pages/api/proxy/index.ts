@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 async function GET(req: NextApiRequest, res: NextApiResponse) {
-  const allowedOrigins = process.env.PROXY_ORIGINS?.split(',');
+  const allowedOrigins = process.env.PROXY_ORIGINS_WHITELIST?.split('\n');
 
   const url = req.query.url;
   if (!url) {
