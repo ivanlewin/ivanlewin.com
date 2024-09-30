@@ -7,13 +7,13 @@ module.exports = {
   async rewrites() {
     return [
       {
-        source: '/experiments',
+        source: "/experiments",
         destination: `https://experiments.ivanlewin.com/experiments`,
       },
       {
-        source: '/experiments/:path+',
+        source: "/experiments/:path+",
         destination: `https://experiments.ivanlewin.com/experiments/:path+`,
-      }
+      },
     ];
-  }
+  },
 };
