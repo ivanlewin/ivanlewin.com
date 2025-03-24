@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Grid } from "@mui/material";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -11,17 +11,13 @@ const TabPanel = (props: TabPanelProps) => {
 
   return (
     <div
-      role='tabpanel'
+      role="tabpanel"
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Grid sx={{ p: 2 }}>
-          {children}
-        </Grid>
-      )}
+      {value === index && <Grid sx={{ p: 2 }}>{children}</Grid>}
     </div>
   );
 };

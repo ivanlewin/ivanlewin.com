@@ -1,36 +1,32 @@
-import { Box } from '@mui/material';
-import Header from './Header';
-import Footer from './Footer';
-import { useRouter } from 'next/router';
+import { Box, useTheme } from "@mui/material";
+import Footer from "./Footer";
+import Header from "./Header";
 
 type LayoutProps = {
-    children?: React.ReactNode;
+  children?: React.ReactNode;
 };
-
-const excludedRoutes = ['/resume'];
 
 const Layout = ({ children }: LayoutProps) => {
-    const router = useRouter();
+  const theme = useTheme();
 
-    if (excludedRoutes.includes(router.pathname)) {
-        return <>{children}</>;
-    } else {
-        return (
-            <Box
-                component={'main'}
-                sx={{
-                    backgroundColor: 'background.default',
-                    color: 'text.primary',
-                    height: '100%',
-                    minHeight: '100vh',
-                }}
-            >
-                <Header />
-                {children}
-                <Footer />
-            </Box>
-        );
-    }
+  return (
+    <Box
+      component={"main"}
+      sx={{
+        backgroundImage:
+          theme.palette.mode === "dark"
+            ? "url('/pictures/notes_black_big.png')"
+            : "url('/pictures/notes_white_big.png')",
+        color: "text.primary",
+        height: "100%",
+        minHeight: "100vh",
+      }}
+    >
+      <Header />
+      {children}
+      <Footer />
+    </Box>
+  );
 };
 
-export default Layout;;
+export default Layout;

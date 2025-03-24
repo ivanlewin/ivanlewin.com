@@ -1,8 +1,8 @@
 {
-    "Job title": "Desarrollador frontend",
-    "Job description": "Desarrollador frontend en Smart Safety",
+    "Job title": "Desarrollador web",
+    "Job description": "Desarrollador en Endless",
     "Resume": "Currículum",
-    "Site description": "Desarrollador frontend",
+    "Site description": "Desarrollador web",
     "Experience": "Experiencia laboral",
     "Education": "Formación académica",
     "Language": "Idioma",
@@ -12,65 +12,6 @@
     "Auto": "Automático",
     "Languages": "Idiomas",
     "Interests": "Intereses",
-    "jobExperience": {
-        "smartSafety": {
-            "position": "Desarrollador",
-            "time period": "mayo 2021 — presente",
-            "bullet 1": "Desarrollo frontend: React + Typescript + Next.js",
-            "bullet 2": "Desarrollo backend: Django REST framework",
-            "bullet 3": "Implementación"
-        },
-        "menta": {
-            "position": "Analista de datos",
-            "time period": "febrero 2020 — abril 2020",
-            "bullet 1": "Social Listening, Data Wrangling y Data Viz (R - Tidyverse, Shiny y otros)",
-            "bullet 2": "Analisis de KPls y elaboración de informes",
-            "bullet 3": "Armado de web scrapers (JavaScript, Python - Selenium)",
-            "bullet 4": "Desarrollo backend (Node.js + TypeScript)",
-            "bullet 5": "Organización del flujo de las tareas",
-            "bullet 6": "Onboarding y mentoring de trainees"
-        },
-        "at": "en"
-    },
-    "education": {
-        "highschool": {
-            "institution": "Colegio Nacional de Buenos Aires",
-            "degree": "Bachiller"
-        },
-        "college": {
-            "institution": "Universidad de Buenos Aires",
-            "degree": "Ingeniería en Informática"
-        }
-    },
-    "languages": {
-        "level": {
-            "Native": "Nativo",
-            "Highly proficient": "Muy alto",
-            "Basic": "Básico"
-        },
-        "English": "Inglés",
-        "Spanish": "Español",
-        "Portuguese": "Portugués"
-    },
-    "resume": {
-        "otherSkills": {
-            "title": "Otras habilidades",
-            "Scripting": "Scripting",
-            "PC Repair": "Arreglo de PCs"
-        },
-        "techStack": {
-            "title": "Tecnologías"
-        },
-        "courses": {
-            "title": "Cursos"
-        },
-        "personalInformation": {
-            "title": "Información personal",
-            "location": {
-                "title": "Ubicación"
-            }
-        }
-    },
     "Connect with me": "Conéctate conmigo",
     "Page not found": "Página no encontrada",
     "Go back to home page": "Volver al inicio"
