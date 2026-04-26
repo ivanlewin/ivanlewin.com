@@ -1,41 +1,68 @@
-import { RouteHandler } from "types/api";
-import { jsonResponse } from "utils/response";
+import { PROXY_ALLOWED_ORIGINS } from "config/server";
+import { RouteHandler } from "types/next";
+import { APIError } from "utils/errors/api-error";
+import { buildErrorResponse, jsonResponse } from "utils/response";
+import { isValidURL } from "utils/types";
 
 export const GET: RouteHandler = async (request) => {
-  const allowedOrigins = process.env.PROXY_ORIGINS_WHITELIST?.split("\n");
-
-  const url = request.nextUrl.searchParams.get("url");
-  if (!url) {
-    return jsonResponse({ message: "Missing 'url' param" }, 400);
-  }
-
-  if (typeof url !== "string") {
-    return jsonResponse({ message: "Invalid 'url' param" }, 400);
-  }
-
-  let origin = "";
   try {
-    origin = new URL(url).origin;
-  } catch (error) {
-    return jsonResponse({ message: "Invalid 'url' param" }, 400);
-  }
-  if (!allowedOrigins?.includes(origin)) {
-    return jsonResponse(
-      { message: "The origin of the url is not supported" },
-      400
-    );
-  }
+    if (!PROXY_ALLOWED_ORIGINS) {
+      console.error("The environment variable `PROXY_ALLOWED_ORIGINS` is not set.");
+      throw new APIError({
+        code: "MISSING_CONFIGURATIONS",
+        message: "There are some environment variables missing.",
+      });
+    }
 
-  try {
-    const response = await fetch(url);
-    const body = await response.json();
-    return new Response(JSON.stringify(body), {
-      status: response.status,
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-      },
-    });
+    const urlParam = request.nextUrl.searchParams.get("url");
+    if (!isValidURL(urlParam)) {
+      throw new APIError({
+        code: "INVALID_URL",
+        message: "Invalid `url` search param.",
+        status: 400,
+      });
+    }
+
+    const url = new URL(urlParam);
+    const allowedOrigins = PROXY_ALLOWED_ORIGINS.split(",");
+    if (!allowedOrigins.includes(url.origin)) {
+      throw new APIError({
+        code: "UNSUPPORTED_ORIGIN",
+        message: "The origin of the URL is not supported.",
+        status: 400,
+      });
+    }
+
+    try {
+      const response = await fetch(urlParam);
+      const contentType = response.headers.get("Content-Type");
+      if (!contentType) {
+        throw new APIError({
+          code: "MISSING_CONTENT_TYPE",
+          message: "The response does not have a `Content-Type` header.",
+        });
+      }
+
+      if (contentType.toLowerCase().includes("application/json")) {
+        const body = await response.json();
+        return jsonResponse(body, { status: response.status });
+      } else {
+        const body = await response.text();
+        return new Response(body, {
+          headers: response.headers,
+          status: response.status,
+          statusText: response.statusText,
+        });
+      }
+    } catch (error) {
+      console.error(error);
+      throw new APIError({
+        code: "FETCH_ERROR",
+        message: "An error occurred while fetching the URL.",
+      });
+    }
   } catch (error) {
-    return jsonResponse({ message: "Error fetching URL" }, 500);
+    console.error(error);
+    return buildErrorResponse(error);
   }
 };
