@@ -2,7 +2,7 @@ import { loadTranslations } from "ni18n";
 import { locales, ni18nConfig } from "ni18n.config";
 import { z } from "zod";
 
-import Editor, { EditorProps } from "@monaco-editor/react";
+import MonacoEditor, { type EditorProps } from "@monaco-editor/react";
 import { useTheme } from "@mui/material";
 
 const hotpDataSchema = z.object({
@@ -19,9 +19,7 @@ const baseOTPDataSchema = z.object({
   label: z.string(),
   secret: z.string(),
   issuer: z.string().optional(),
-  algorithm: z
-    .union([z.literal("SHA1"), z.literal("SHA256"), z.literal("SHA512")])
-    .optional(),
+  algorithm: z.union([z.literal("SHA1"), z.literal("SHA256"), z.literal("SHA512")]).optional(),
   digits: z.union([z.literal(6), z.literal(8)]).optional(),
 });
 
@@ -46,9 +44,9 @@ const OTPValuesMonaco = ({ onSubmit }: OTPValuesMonacoProps) => {
       if (parsed.success) {
         otpData = [parsed.data];
       } else {
-        const parsed = z.array(otpDataSchema).safeParse(JSON.parse(value));
-        if (parsed.success) {
-          otpData = parsed.data;
+        const parsedArray = z.array(otpDataSchema).safeParse(JSON.parse(value));
+        if (parsedArray.success) {
+          otpData = parsedArray.data;
         }
       }
     }
@@ -56,7 +54,7 @@ const OTPValuesMonaco = ({ onSubmit }: OTPValuesMonacoProps) => {
   };
 
   return (
-    <Editor
+    <MonacoEditor
       height="25vh"
       language="json"
       theme={theme.palette.mode === "dark" ? "vs-dark" : "light"}

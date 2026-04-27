@@ -1,20 +1,7 @@
 import useLocalStorage from "hooks/use-storage";
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 
-import {
-  createTheme,
-  PaletteMode,
-  ThemeProvider,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { createTheme, PaletteMode, ThemeProvider, useMediaQuery, useTheme } from "@mui/material";
 
 import { getDesignTokens } from "../theme";
 
@@ -39,13 +26,13 @@ export const ToggleColorMode = ({ children }: ToggleColorModeProps) => {
 
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const [paletteMode, setPaletteMode] = useState<"light" | "dark">(
-    prefersDarkMode ? "dark" : "light"
+    prefersDarkMode ? "dark" : "light",
   );
 
-  const [userPreferences, setUserPreferences] = useLocalStorage(
-    "userPreferences",
-    { paletteMode, syncWithSystem: true }
-  );
+  const [userPreferences, setUserPreferences] = useLocalStorage("userPreferences", {
+    paletteMode,
+    syncWithSystem: true,
+  });
 
   useEffect(() => {
     if (userPreferences.syncWithSystem === false) {
@@ -68,7 +55,7 @@ export const ToggleColorMode = ({ children }: ToggleColorModeProps) => {
         setUserPreferences({ paletteMode: newMode, syncWithSystem: false });
       }
     },
-    [prefersDarkMode, setUserPreferences]
+    [prefersDarkMode, setUserPreferences],
   );
 
   const colorModeTheme = useMemo(
@@ -77,7 +64,7 @@ export const ToggleColorMode = ({ children }: ToggleColorModeProps) => {
         ...theme,
         ...getDesignTokens(paletteMode),
       }),
-    [paletteMode, theme]
+    [paletteMode, theme],
   );
 
   return (

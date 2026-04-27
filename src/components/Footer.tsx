@@ -39,29 +39,13 @@ const Footer = () => {
             gap: theme.spacing(2.5),
           }}
         >
-          <a
-            target="_blank"
-            href="mailto:ivanlewin.trabajo@gmail.com"
-            rel="noopener noreferrer"
-          >
+          <a target="_blank" href="mailto:ivanlewin.trabajo@gmail.com" rel="noopener noreferrer">
             <Icon src="/pictures/Email.svg" title="Email" alt="Email icon" />
           </a>
-          <a
-            target="_blank"
-            href="https://www.linkedin.com/in/ivanlewin"
-            rel="noopener noreferrer"
-          >
-            <Icon
-              src="/pictures/LinkedIn.svg"
-              title="LinkedIn"
-              alt="LinkedIn Logo"
-            />
+          <a target="_blank" href="https://www.linkedin.com/in/ivanlewin" rel="noopener noreferrer">
+            <Icon src="/pictures/LinkedIn.svg" title="LinkedIn" alt="LinkedIn Logo" />
           </a>
-          <a
-            href="https://www.github.com/ivanlewin"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://www.github.com/ivanlewin" target="_blank" rel="noopener noreferrer">
             <Icon src="/pictures/GitHub.svg" title="GitHub" alt="GitHub Logo" />
           </a>
         </Grid>

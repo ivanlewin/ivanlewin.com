@@ -25,9 +25,7 @@ const Icon = ({ src, title, alt }: IconProps) => {
         fill
         sizes="100vw"
         style={{
-          filter: `brightness(0) invert(${
-            theme.palette.mode === "dark" ? 1 : 0
-          })`,
+          filter: `brightness(0) invert(${theme.palette.mode === "dark" ? 1 : 0})`,
         }}
       />
     </span>

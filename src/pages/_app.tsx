@@ -1,14 +1,14 @@
-import type { AppProps } from 'next/app';
+import type { AppProps } from "next/app";
 
-import Head from 'next/head';
-import { appWithI18Next } from 'ni18n';
+import Head from "next/head";
+import { appWithI18Next } from "ni18n";
 
-import { CssBaseline, ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider } from "@mui/material";
 
-import Layout from '../components/Layout';
-import { ToggleColorMode } from '../contexts/color-mode';
-import { ni18nConfig } from 'ni18n.config';
-import { mainTheme } from '../theme';
+import Layout from "../components/Layout";
+import { ToggleColorMode } from "../contexts/color-mode";
+import { ni18nConfig } from "ni18n.config";
+import { mainTheme } from "../theme";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
@@ -18,11 +18,11 @@ const App = ({ Component, pageProps }: AppProps) => {
       </Head>
       <ThemeProvider theme={mainTheme}>
         <CssBaseline enableColorScheme />
-        <ToggleColorMode >
+        <ToggleColorMode>
           <Layout>
             <Component {...pageProps} />
           </Layout>
-        </ToggleColorMode >
+        </ToggleColorMode>
       </ThemeProvider>
     </>
   );

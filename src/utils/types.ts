@@ -9,8 +9,7 @@ export const isValidURL = (value: unknown): value is string => {
   }
 
   try {
-    new URL(value);
-    return true;
+    return Boolean(new URL(value));
   } catch {
     return false;
   }

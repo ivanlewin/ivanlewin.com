@@ -42,8 +42,8 @@ const OTPValuesForm = ({ onSubmit }: OTPValuesFormProps) => {
         digits,
         counter,
         period,
-      } as OTPData),
-    [type, label, secret, issuer, algorithm, digits, counter, period]
+      }) as OTPData,
+    [type, label, secret, issuer, algorithm, digits, counter, period],
   );
 
   return (
@@ -133,9 +133,7 @@ const OTPValuesForm = ({ onSubmit }: OTPValuesFormProps) => {
             <RadioGroup
               row
               value={type}
-              onChange={(event) =>
-                setType(event.target.value as "totp" | "hotp")
-              }
+              onChange={(event) => setType(event.target.value as "totp" | "hotp")}
             >
               <FormControlLabel value="totp" label="TOTP" control={<Radio />} />
               <FormControlLabel value="hotp" label="HOTP" control={<Radio />} />
@@ -148,21 +146,11 @@ const OTPValuesForm = ({ onSubmit }: OTPValuesFormProps) => {
             <RadioGroup
               row
               value={algorithm}
-              onChange={(e) =>
-                setAlgorithm(e.target.value as OTPData["algorithm"])
-              }
+              onChange={(e) => setAlgorithm(e.target.value as OTPData["algorithm"])}
             >
               <FormControlLabel value="SHA1" label="SHA1" control={<Radio />} />
-              <FormControlLabel
-                value="SHA256"
-                label="SHA256"
-                control={<Radio />}
-              />
-              <FormControlLabel
-                value="SHA512"
-                label="SHA512"
-                control={<Radio />}
-              />
+              <FormControlLabel value="SHA256" label="SHA256" control={<Radio />} />
+              <FormControlLabel value="SHA512" label="SHA512" control={<Radio />} />
             </RadioGroup>
           </FormGroup>
         </Grid>

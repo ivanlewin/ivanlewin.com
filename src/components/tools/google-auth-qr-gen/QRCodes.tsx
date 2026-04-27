@@ -28,8 +28,8 @@ const QRCodes = ({ values }: QRCodesProps) => {
     debouncedValues.length === 0
       ? ""
       : debouncedValues.length === 1
-      ? t("Your code")
-      : t("Your codes");
+        ? t("Your code")
+        : t("Your codes");
 
   /**
    * Builds an otpauth URI in the [KEY URI Format](https://github.com/google/google-authenticator/wiki/Key-Uri-Format) from Google Authenticator
@@ -69,18 +69,14 @@ const QRCodes = ({ values }: QRCodesProps) => {
             canvas.style.height = "";
             canvas.style.maxWidth = `${CANVAS_SIZE}px`;
             canvas.style.maxHeight = `${CANVAS_SIZE}px`;
-            canvas.style.border = `${theme.spacing(1)}px solid ${
-              theme.palette.background.paper
-            }`;
+            canvas.style.border = `${theme.spacing(1)}px solid ${theme.palette.background.paper}`;
 
             const container = document.createElement("div");
             container.style.display = "flex";
             container.style.flexDirection = "column";
             container.style.gap = "4px";
             const canvasTitle = document.createElement("p");
-            canvasTitle.textContent = code.issuer
-              ? `${code.issuer} (${code.label})`
-              : code.label;
+            canvasTitle.textContent = code.issuer ? `${code.issuer} (${code.label})` : code.label;
             canvasTitle.style.textAlign = "center";
             canvasTitle.style.margin = "0px";
             canvasTitle.style.maxWidth = `${CANVAS_SIZE}px`;
@@ -92,13 +88,8 @@ const QRCodes = ({ values }: QRCodesProps) => {
         });
       } catch (error) {
         if (error instanceof Error) {
-          if (
-            error.message ===
-            "The amount of data is too big to be stored in a QR Code"
-          ) {
-            console.error(
-              "Error: Se excedió la capacidad máxima del código QR"
-            );
+          if (error.message === "The amount of data is too big to be stored in a QR Code") {
+            console.error("Error: Se excedió la capacidad máxima del código QR");
           } else if (error.message === "No input text") {
             console.error("Error: El QR no tiene contenido");
           }
@@ -107,7 +98,7 @@ const QRCodes = ({ values }: QRCodesProps) => {
         }
       }
     },
-    [buildURI, theme]
+    [buildURI, theme],
   );
 
   useEffect(() => {
@@ -141,9 +132,7 @@ const QRCodes = ({ values }: QRCodesProps) => {
               }
         }
       >
-        {title ? (
-          <Typography sx={{ textAlign: "center", mb: 2 }}>{title}:</Typography>
-        ) : null}
+        {title ? <Typography sx={{ textAlign: "center", mb: 2 }}>{title}:</Typography> : null}
         <Grid
           ref={canvasContainerRef}
           sx={{

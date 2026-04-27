@@ -13,12 +13,9 @@ const ColorModeMenu = () => {
   const { t } = useTranslation();
   const { paletteMode, syncedWithSystem, changeColorMode } = useColorMode();
 
-  const [menuAnchorEl, setMenuAnchor] = useState<null | HTMLButtonElement>(
-    null
-  );
+  const [menuAnchorEl, setMenuAnchor] = useState<null | HTMLButtonElement>(null);
   const open = Boolean(menuAnchorEl);
-  const handleMenu: IconButtonProps["onClick"] = (event) =>
-    setMenuAnchor(event.currentTarget);
+  const handleMenu: IconButtonProps["onClick"] = (event) => setMenuAnchor(event.currentTarget);
   const closeMenu = () => setMenuAnchor(null);
 
   return (
@@ -31,9 +28,7 @@ const ColorModeMenu = () => {
         title={t("Change theme")}
         onClick={handleMenu}
         label={t("Theme")}
-        icon={
-          paletteMode === "dark" ? <Brightness4Icon /> : <Brightness7Icon />
-        }
+        icon={paletteMode === "dark" ? <Brightness4Icon /> : <Brightness7Icon />}
       />
       <Menu
         id="color-mode-menu"
