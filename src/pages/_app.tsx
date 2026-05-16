@@ -2,6 +2,7 @@ import type { AppProps } from "next/app";
 
 import Head from "next/head";
 import { appWithI18Next } from "ni18n";
+import { Analytics } from "@vercel/analytics/react";
 
 import { CssBaseline, ThemeProvider } from "@mui/material";
 
@@ -24,6 +25,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           </Layout>
         </ToggleColorMode>
       </ThemeProvider>
+      <Analytics />
     </>
   );
 };
