@@ -7,8 +7,6 @@ import { isNonEmptyString } from "utils/types";
 
 export const GET: RouteHandler = async (request) => {
   try {
-    console.log("cron started");
-
     if (ENVIRONMENT !== "production") {
       throw new APIError({
         code: "INVALID_ENVIRONMENT",
@@ -16,7 +14,6 @@ export const GET: RouteHandler = async (request) => {
         status: 400,
       });
     }
-    console.log("ENVIRONMENT = production");
 
     if (!isNonEmptyString(CRON_SECRET)) {
       throw new APIError({
@@ -24,7 +21,6 @@ export const GET: RouteHandler = async (request) => {
         message: "Missing or invalid 'CRON_SECRET' environment variable.",
       });
     }
-    console.log("CRON_SECRET non empty");
 
     const token = request.headers.get("Authorization");
     if (!token) {
@@ -34,7 +30,6 @@ export const GET: RouteHandler = async (request) => {
         status: 401,
       });
     }
-    console.log("token non empty");
 
     const rawToken = token.startsWith("Bearer ") ? token.slice(7) : token;
     if (!constantTimeCompare(rawToken, CRON_SECRET)) {
@@ -45,7 +40,6 @@ export const GET: RouteHandler = async (request) => {
         description: "The Bearer token is invalid.",
       });
     }
-    console.log("token authorized");
 
     if (!SUPABASE_PROJECT_IDS) {
       console.error("The environment variable `SUPABASE_PROJECT_IDS` is not set.");
@@ -54,12 +48,10 @@ export const GET: RouteHandler = async (request) => {
         message: "There are some environment variables missing.",
       });
     }
-    console.log("SUPABASE_PROJECT_IDS non empty");
 
     const projectIds = SUPABASE_PROJECT_IDS.split(",");
     for (const projectId of projectIds) {
       try {
-        console.log(`fetching https://${projectId}.supabase.co/rest/v1`);
         await fetch(`https://${projectId}.supabase.co/rest/v1`);
       } catch (error) {
         console.error(
