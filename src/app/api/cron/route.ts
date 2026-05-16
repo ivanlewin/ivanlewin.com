@@ -48,9 +48,7 @@ export const GET: RouteHandler = async (request) => {
     console.log("token authorized");
 
     if (!SUPABASE_PROJECT_IDS) {
-      console.error(
-        "The environment variable `SUPABASE_PROJECT_IDS` is not set.",
-      );
+      console.error("The environment variable `SUPABASE_PROJECT_IDS` is not set.");
       throw new APIError({
         code: "MISSING_CONFIGURATIONS",
         message: "There are some environment variables missing.",

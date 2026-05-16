@@ -81,9 +81,9 @@ const QRCodes = ({ values }: QRCodesProps) => {
             canvasTitle.style.margin = "0px";
             canvasTitle.style.maxWidth = `${CANVAS_SIZE}px`;
             canvasTitle.style.lineHeight = "1.25";
-            container.appendChild(canvas);
-            container.appendChild(canvasTitle);
-            canvasContainer.appendChild(container);
+            container.append(canvas);
+            container.append(canvasTitle);
+            canvasContainer.append(container);
           }
         });
       } catch (error) {

@@ -46,14 +46,13 @@ export const GET: RouteHandler = async (request) => {
       if (contentType.toLowerCase().includes("application/json")) {
         const body = await response.json();
         return jsonResponse(body, { status: response.status });
-      } else {
-        const body = await response.text();
-        return new Response(body, {
-          headers: response.headers,
-          status: response.status,
-          statusText: response.statusText,
-        });
       }
+      const body = await response.text();
+      return new Response(body, {
+        headers: response.headers,
+        status: response.status,
+        statusText: response.statusText,
+      });
     } catch (error) {
       console.error(error);
       throw new APIError({

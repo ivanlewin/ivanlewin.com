@@ -8,9 +8,8 @@ function useStorage<T>(key: string, defaultValue: T, storageObject: Storage) {
 
     if (typeof defaultValue === "function") {
       return defaultValue();
-    } else {
-      return defaultValue;
     }
+    return defaultValue;
   });
 
   useEffect(() => {
@@ -24,5 +23,5 @@ function useStorage<T>(key: string, defaultValue: T, storageObject: Storage) {
 export default function useLocalStorage<T>(key: string, defaultValue: T) {
   if (typeof window === "undefined")
     return [defaultValue, () => {}] as [T, Dispatch<SetStateAction<T>>];
-  else return useStorage(key, defaultValue, window.localStorage);
+  return useStorage(key, defaultValue, window.localStorage);
 }

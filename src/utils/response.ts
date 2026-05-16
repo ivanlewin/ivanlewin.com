@@ -71,13 +71,12 @@ function buildResponse(body?: BodyInit | undefined | null, responseInit?: Respon
       status: responseInit?.status ?? 204,
       statusText: responseInit?.statusText,
     });
-  } else {
-    return new Response(body, {
-      headers: responseInit?.headers,
-      status: responseInit?.status ?? 200,
-      statusText: responseInit?.statusText,
-    });
   }
+  return new Response(body, {
+    headers: responseInit?.headers,
+    status: responseInit?.status ?? 200,
+    statusText: responseInit?.statusText,
+  });
 }
 
 export function jsonResponse(body: unknown, responseInit?: ResponseInit) {
