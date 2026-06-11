@@ -39,11 +39,11 @@ const Footer = () => {
             gap: theme.spacing(2.5),
           }}
         >
-          <a target="_blank" href="https://www.linkedin.com/in/ivanlewin" rel="noopener noreferrer">
-            <Icon src="/pictures/LinkedIn.svg" title="LinkedIn" alt="LinkedIn Logo" />
-          </a>
           <a href="https://www.github.com/ivanlewin" target="_blank" rel="noopener noreferrer">
             <Icon src="/pictures/GitHub.svg" title="GitHub" alt="GitHub Logo" />
+          </a>
+          <a target="_blank" href="https://www.linkedin.com/in/ivanlewin" rel="noopener noreferrer">
+            <Icon src="/pictures/LinkedIn.svg" title="LinkedIn" alt="LinkedIn Logo" />
           </a>
         </Grid>
       </Grid>
