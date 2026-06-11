@@ -5,6 +5,20 @@ const config: NextConfig = {
     locales: ["en", "es"],
     defaultLocale: "en",
   },
+  redirects: () => {
+    return [
+      {
+        source: "/curriculum",
+        destination: `https://ivanlewin.com/resume/es`,
+        statusCode: 307,
+      },
+      {
+        source: "/curriculum/:path+",
+        destination: `https://ivanlewin.com/resume/es/:path+`,
+        statusCode: 307,
+      },
+    ];
+  },
   rewrites() {
     return [
       {
@@ -22,7 +36,7 @@ const config: NextConfig = {
       {
         source: "/resume/:path+",
         destination: `https://resume.ivanlewin.com/resume/:path+`,
-      },
+      }
     ];
   },
 };
