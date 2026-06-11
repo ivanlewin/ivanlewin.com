@@ -1,10 +1,11 @@
-/** @type {import('next').NextConfig} */
-module.exports = {
+import { NextConfig } from "next";
+
+const config: NextConfig = {
   i18n: {
     locales: ["en", "es"],
     defaultLocale: "en",
   },
-  async rewrites() {
+  rewrites() {
     return [
       {
         source: "/experiments",
@@ -14,6 +15,16 @@ module.exports = {
         source: "/experiments/:path+",
         destination: `https://experiments.ivanlewin.com/experiments/:path+`,
       },
+      {
+        source: "/resume",
+        destination: `https://resume.ivanlewin.com`,
+      },
+      {
+        source: "/resume/:path+",
+        destination: `https://resume.ivanlewin.com/:path+`,
+      },
     ];
   },
 };
+
+export default config;
