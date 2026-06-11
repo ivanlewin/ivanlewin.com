@@ -17,11 +17,11 @@ const config: NextConfig = {
       },
       {
         source: "/resume",
-        destination: `https://resume.ivanlewin.com`,
+        destination: `https://resume.ivanlewin.com/resume`,
       },
       {
         source: "/resume/:path+",
-        destination: `https://resume.ivanlewin.com/:path+`,
+        destination: `https://resume.ivanlewin.com/resume/:path+`,
       },
     ];
   },
